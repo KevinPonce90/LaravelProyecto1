@@ -36,7 +36,7 @@ Route::get('/canciones/{id?}', function($id = null) {
     //$var = 'WASA';
     //dd($canciones);
     //return view('canciones', compact('canciones', 'var')); //Metodo para enviar varibale pero le envias la cadena de la variable
-    //->with(['canciones' => $canciones, 'var' => $var]); Metodo para enviar variable 
+    //->with(['canciones' => $canciones, 'var' => $var]); Metodo para enviar variable h
 
 });
 
