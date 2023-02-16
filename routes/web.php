@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaginaController;
 
 use function PHPUnit\Framework\isNull;
 
@@ -19,26 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/canciones/{id?}', function($id = null) {
-    
-    $canciones = [];
-    $canciones[] = ['nombre' => 'Balada', 'artista' => 'Manuel'];
-    $canciones[] = ['nombre' => 'Sol', 'artista' => 'Luismi'];
-    $canciones[] = ['nombre' => 'MuchoParaMi', 'artista' => 'SantaRM'];
-
-    if(!is_null($id)){
-        $select_Cancion = $canciones[$id];
-    } else {
-        $select_Cancion = null;
-    }
-    return view('canciones', compact('canciones', 'select_Cancion'));
+Route::get('/canciones/{id?}', [PaginaController::class, 'canciones']);
+Route::get('contacto', [PaginaController::class, 'contacto']);
+Route::post('contacto', [PaginaController::class, 'bautizo']);
 
     //$var = 'WASA';
     //dd($canciones);
     //return view('canciones', compact('canciones', 'var')); //Metodo para enviar varibale pero le envias la cadena de la variable
     //->with(['canciones' => $canciones, 'var' => $var]); Metodo para enviar variable h
 
-});
 
 //Route::get('/canciones/{id}', function($id) {
     
